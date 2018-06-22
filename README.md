@@ -126,8 +126,8 @@ params = {
 }
 result = merchant_api.post(url, params)
 ```
-* 到此我们就完成了用户之间一次完整的交易
-## 通过创建收款订单来完成支付（快速支付）
+* 到此我们就完成了用户之间一次完整的支付
+### 通过创建收款订单来完成支付（快速支付）
 * 创建一个收款订单，通过api接口`/member/create_charge_order`
 * `number`订单编号（全局唯一）
 * `amount` 法币金额（您可以自己设定法币的种类，如：USD、CNY） 
