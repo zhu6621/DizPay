@@ -154,3 +154,6 @@ result = merchant_api.post(url, params)
 url = '{}//member/query_charge_order'.format(base_url)
 result = merchant_api.post(url, {'number': 'YOUR_ORDER_NUMBER'})
 ```
+
+# Documentation
+You can find the dizpay api documentation [on the website](https://www.dizpay.com/en/developer)
