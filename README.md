@@ -76,7 +76,9 @@ class Api(object):
 
 merchantApi = Api(YOUR_APP_ID, YOUR_APP_KEY)
 ```
-### 创建用户钱包
+### 充值
+通过充值的方式来完成一次支付，支付场景：用户首先往自己的钱包充值，然后用自己的余额去购买商品，完成一次交易。优点：支付高效快捷可控制，用户能及时得到反馈信息；缺点：用户必须先向商户充值。
+#### 1.创建用户钱包
 * 在您的用户注册或者登陆后为他们分配数字货币钱包地址。
 * 可通过接口`/member/create_wallet`去为每个用户配置数字货币钱包。
 * currency_list可以传入你想支持的货币列表，比如`"BTC, ETH"`, 不传会默认创建`BTC LTC DOGE DASH BTG BCH USDT ETH`
@@ -85,12 +87,53 @@ url = '{}/member/create_wallet'.format(BASE_URL)
 wallet_list = merchant_api.post(url, {'currency_list': None})
 ```
 * 然后把`wallet_list`存入当前用户下。（到此，为用户创建好了钱包，就可以开始交易了）
-### 创建订单
-* 可通过接口`/member/create_multi_pay_order`去创建一个订单。
+#### 2.创建订单
+* 可通过接口`/member/create_transaction_order`去创建一个订单。
 * `number`字段由商户自己生成（全局唯一），可以通过`uuid.uuid4()`来生成订单号。
 * `address`为用户自己的钱包地址（dizpay支付网关可自动识别币种）。
+* `to_address`交易目标地址，如果不设置，默认支付给商户
 * `fee`如果商户想收取用户的手续费可通过该字段去实现，如设置`{"amount": "100", "fee": "1"}`将会扣掉用户101。
 * extra为附带信息。
+```python
+import uuid
+
+
+url = '{}/member/create_transaction_order'.format(BASE_URL)
+params = {
+    'number': uuid.uuid4(),
+    'address': '1sLahdrYh4YAFAdrHVUTAuCw8RzDFmn7M',
+    'to_address': '',
+    'amount': '1',
+    'fee': '0',
+     'extra': ''
+}
+res = merchant_api.post(url, params)
+```
+* 到此用户可以成功创建了一个订单。
+#### 3.支付订单
+* 创建完订单，我们可根据订单号，接收方钱包地址来完成此次交易。
+* 通过接口`/member/pay_order`来支付订单。
+* `number`订单号，全局唯一。
+```python
+import uuid
+
+
+url = '{}/member/pay_order'.format(base_url)
+params = {
+    'number': uuid.uuid4()
+}
+result = merchant_api.post(url, params)
+```
+* 到此我们就完成了用户之间一次完整的支付
+#### 多次支付订单
+为了一些特殊的业务场景，我们提供了多次支付订单。例如创建一个红包（相当于一个订单），然后会随机分配给n个人，那么付款的时候需要多次支付，分别付给每个人。如果您愿意，也可以用到其他的一些支付场景。
+(1)创建一个多次支付订单。
+* 接口：`/member/create_multi_pay_order`。
+* `number`字段由商户自己生成（全局唯一），可以通过uuid.uuid4()来生成订单号。
+* `address`为用户自己的钱包地址（dizpay支付网关可自动识别币种）。
+* `amount`支付金额（多次支付订单的总金额）。
+* `fee`如果商户想收取用户的手续费可通过该字段去实现，如设置{"amount": "100", "fee": "1"}将会扣掉用户101。
+* `extra`为附带信息。
 ```python
 import uuid
 
@@ -101,21 +144,25 @@ params = {
     'address': '1sLahdrYh4YAFAdrHVUTAuCw8RzDFmn7M',
     'amount': '1',
     'fee': '0',
-     'extra': ''
+    'extra': ''
 }
 res = merchant_api.post(url, params)
 ```
-* 到此用户可以成功创建了一个订单。
-### 支付订单
-* 创建完订单，我们可根据订单号，接收方钱包地址来完成此次交易。
-* 通过接口`/member/pay_multi_pay_order`来支付订单。
+* 这样我们成功创建了一个多次支付订单。
+(2)支付多次订单
+* 接口： `/member/pay_multi_pay_order`
 * `multi_pay_order_number`是用户创建一个订单时的订单号。
 * `order_number`是随机生成的订单号全局唯一，当一个订单需要多次支付的时候就需要根据`order_number`去区分，例如创建一个红包（相当于一个订单），然后会随机分配给n个人（那么每个人都相当于会有一个订单号即`order_number`）。
+* `to_address`每次支付的目标地址。
+* `amount`每此支付的金额。
+* `fee`如果商户想收取用户的手续费可通过该字段去实现，如设置{"amount": "100", "fee": "1"}将会扣掉用户101。
+* `extra`为附带信息。
+
 ```python
 import uuid
 
 
-url = '{}/member/pay_multi_pay_order'.format(base_url)
+url = '{}/member/pay_order'.format(base_url)
 params = {
     'multi_pay_order_number': 'YOUR_MULTI_ORDER_NUMBER',
     'order_number': uuid.uuid4(),
@@ -126,8 +173,11 @@ params = {
 }
 result = merchant_api.post(url, params)
 ```
-* 到此我们就完成了用户之间一次完整的支付
-### 通过创建收款订单来完成支付（快速支付）
+* 多次支付此订单。
+
+### 收款
+通过收款的方式来完成支付，优点：用户可以将数字货币存储在任意地方，在需要支付的时候再转进商户。缺点：商户不好控制想要收取的金额；而且由于数字货币实时性的限制，用户无法及时得到此次支付的反馈信息（支付成功或者失败）。
+#### 通过创建收款订单来完成支付（快速支付）
 * 创建一个收款订单，通过api接口`/member/create_charge_order`
 * `number`订单编号（全局唯一）
 * `amount` 法币金额（您可以自己设定法币的种类，如：USD、CNY） 
