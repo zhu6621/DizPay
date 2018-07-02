@@ -102,7 +102,6 @@ url = '{}/member/create_transaction_order'.format(BASE_URL)
 params = {
     'number': uuid.uuid4(),
     'address': '1sLahdrYh4YAFAdrHVUTAuCw8RzDFmn7M',
-    'to_address': '',
     'amount': '1',
     'fee': '0',
      'extra': ''
