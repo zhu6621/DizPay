@@ -31,6 +31,7 @@ POST 参数增加 app_id、app_key 并按照字母顺序排列成 k1=v1&k2=v2 �
   "fee": "0.002"
 }
 ```
+
 ## python实例
 ### 创建api类（对所有接口进行统一处理生成签名）
 ```python
@@ -86,7 +87,8 @@ merchantApi = Api(YOUR_APP_ID, YOUR_APP_KEY)
 url = '{}/member/create_wallet'.format(BASE_URL)
 wallet_list = merchant_api.post(url, {'currency_list': None})
 ```
-* 然后把`wallet_list`存入当前用户下。（到此，为用户创建好了钱包，就可以开始交易了）
+* 然后把`wallet_list`存入当前用户下。（到此，为用户创建好了钱包）
+* 为会员创建好钱包后，引导会员去充值。
 #### 2.创建订单
 * 可通过接口`/member/create_transaction_order`去创建一个订单。
 * `number`字段由商户自己生成（全局唯一），可以通过`uuid.uuid4()`来生成订单号。
