@@ -91,7 +91,7 @@ wallet_list = merchant_api.post(url, {'currency_list': None})
 * 可通过接口`/member/create_transaction_order`去创建一个订单。
 * `number`字段由商户自己生成（全局唯一），可以通过`uuid.uuid4()`来生成订单号。
 * `address`为用户自己的钱包地址（dizpay支付网关可自动识别币种）。
-* `to_address`交易目标地址，如果不设置，默认支付给商户
+* `to_address`交易目标地址，如果不传递，默认支付给商户
 * `fee`如果商户想收取用户的手续费可通过该字段去实现，如设置`{"amount": "100", "fee": "1"}`将会扣掉用户101。
 * extra为附带信息。
 ```python
