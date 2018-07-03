@@ -1,0 +1,7 @@
+/.idea/
+/instance/*
+!/instance/readme.txt
+/venv/
+*.DS_Store
+*.pyc
+*.log
