@@ -23,7 +23,6 @@ requests-oauthlib==0.8.0
 six==1.10.0
 SQLAlchemy==1.1.2
 Werkzeug==0.11.11
-yunpian-python-sdk==1.0.0
 pyOpenSSL==17.5.0
 ndg-httpsclient==0.5.0
 pyasn1==0.4.2
