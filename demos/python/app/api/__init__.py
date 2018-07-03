@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import logging
 import math
 from flask import current_app, g, request, redirect, url_for
 from flask_restful import Api, reqparse, Resource, abort
@@ -7,13 +6,6 @@ from werkzeug import exceptions
 from functools import wraps
 
 restful_api = Api()
-
-
-def init_log():
-    from app.log import multiprocessing_file_logger_handler
-    logger = logging.getLogger()
-    logger.setLevel(logging.DEBUG)
-    logger.addHandler(multiprocessing_file_logger_handler())
 
 
 class HomeApi(Resource):
@@ -35,9 +27,6 @@ def init_api(app):
     from app.api import wallet
 
     restful_api.init_app(app)
-
-    if not app.debug:
-        init_log()
 
 
 def login_required(func):
@@ -86,40 +75,6 @@ class CustomRequestParser(reqparse.RequestParser):
                                         % ', '.join(req.unparsed_arguments.keys()))
 
         return namespace
-
-
-def patch_requests_response(r):
-    if r.encoding is None or r.encoding == 'ISO-8859-1':
-        r.encoding = 'UTF-8'
-
-
-def is_dev_and_test_env():
-    dev_env = current_app.config['SQLALCHEMY_DATABASE_URI'] == current_app.config['DEV_ENV_DATABASE_URI']
-    test_env = current_app.config['SQLALCHEMY_DATABASE_URI'] == current_app.config['TEST_ENV_DATABASE_URI']
-    return dev_env or test_env
-
-
-class FakeRequest(dict):
-    def __setattr__(self, name, value):
-        object.__setattr__(self, name, value)
-
-
-def url_normalize(url):
-    if not url:
-        return ''
-    elif url.startswith('http://'):
-        return url
-    else:
-        return current_app.config['OSS_BUCKET_CDN'] + url
-
-
-def top_exception_to_error(e):
-    return {
-        'errorcode': e.errorcode,
-        'message': e.message,
-        'subcode': e.subcode,
-        'submsg': e.submsg
-    }
 
 
 def pagination_calc_page(per_page, page, count):
