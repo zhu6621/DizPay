@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 class Config(object):
     DEBUG = True
-    SECRET_KEY = '\n\xb5\x11\xfa\x93*\xd7p[\xe6\xa2\xb7\xa0@\xec\x10\x9f\xee\xd8\xc9\xc0\x94\x80\xd9'
+    SECRET_KEY = '\xd4{t0G\xfb\x18okZ\xd9\xa9\x99\x13\x01\x8c\t|5\x92*\xb9\x01\xb1\xc7\xbf\x12\xde\xad\xe3\xe1\xf0'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     BUNDLE_ERRORS = True  # flask-restful
 
-    TIMEZONE = 'America/New_York'
+    TIMEZONE = 'Asia/Shanghai'
 
     # config your app_key and app_id
     CRYPTOPAY_APP_ID = ''
@@ -15,7 +15,6 @@ class Config(object):
     # production url : http://api.cryptopay.icaicloud.com
     CRYPTOPAY_BASE_URL = 'http://api.staging.cryptopay.icaicloud.com'
 
-    FIAT_CURRENCY = 'USDB'
 
     PRODUCT_NAME = 'dizpay-demo'
 

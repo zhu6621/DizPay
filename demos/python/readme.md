@@ -2,7 +2,6 @@
 ```
 app 
     api                      api接口
-    log                      log
     model                    数据库ORM
     static                   静态文件
     templates                前端模板

@@ -85,10 +85,15 @@
 
             $form.find(".btn").click(function () {
                 if (btnFlag) {
-                    var params = $form.serializeJSON();
+                    var params = $form.serializeObject();
+                    var mobileRexp = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
+                    if(!mobileRexp.test(params.mobile)) {
+                        layer.msg('mobile does not correct');
+                        return false;
+                    }
                     $.ajax({
                         type: 'POST',
-                        data: params,
+                        data: JSON.stringify(params),
                         url: '/api/password_login',
                         json: true,
                         contentType: 'application/json',
