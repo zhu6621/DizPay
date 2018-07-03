@@ -28,7 +28,7 @@ class UserApi(Resource):
 restful_api.add_resource(UserApi, '/api/user')
 
 
-# 密码登录
+# password login
 class SmsPinCodedLoginApi(Resource):
     @marshal_with(user_fields)
     def post(self):
@@ -57,3 +57,16 @@ class SmsPinCodedLoginApi(Resource):
 
 
 restful_api.add_resource(SmsPinCodedLoginApi, '/api/password_login')
+
+
+# logout
+class LogoutApi(Resource):
+    decorators = [login_required]
+
+    def post(self):
+        g.current_user.generate_auth_token()
+        db.session.commit()
+        return {}, {'Set-Cookie': dump_cookie('token', max_age=0)}
+
+
+restful_api.add_resource(LogoutApi, '/api/log_out')

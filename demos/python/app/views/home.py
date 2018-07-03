@@ -4,7 +4,7 @@ from app.views import Api
 home = Blueprint('home', __name__)
 
 
-@home.route('/login')
+@home.route('/')
 def login():
     return render_template('login.html')
 

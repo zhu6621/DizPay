@@ -2,62 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e6a32c1-b5c6-4f2b-91ca-a4becb8aa16c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/icon/BCH.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/icon/BTC.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/icon/ETH.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/icon/LTC.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/icon/back.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/icon/checked.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/icon/exit.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/icon/normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/icon/product.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/loading-0.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/loading-1.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/loading-2.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/img/payment_logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/api/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/api/user.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/api/wallet.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/log/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/log/multiprocess_file_logger.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/log/run_log_server.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/model/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/model/user.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/model/wallet.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/css/layer.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/css/page.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/js/clipboard.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/js/jquery-1.9.1.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/js/jquery.serialize-object.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/js/jquery.tmpl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/js/layer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/static/assets/js/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/templates/layout.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/templates/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/templates/wallet.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/test/oauth2_client.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/views/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/app/views/home.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/configuration/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/configuration/development.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/cryptopay_sdk/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/deploy/rotate_uwsgi_log.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/deploy/uwsgi.ini" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/manage.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/migrations/README" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/migrations/alembic.ini" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/migrations/env.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/migrations/script.py.mako" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/requirements/development.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/requirements/production.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demos/python/run.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demos/python/readme.md" afterPath="$PROJECT_DIR$/demos/python/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demos/python/app/api/user.py" afterPath="$PROJECT_DIR$/demos/python/app/api/user.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demos/python/app/templates/layout.html" afterPath="$PROJECT_DIR$/demos/python/app/templates/layout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demos/python/app/templates/login.html" afterPath="$PROJECT_DIR$/demos/python/app/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demos/python/app/views/home.py" afterPath="$PROJECT_DIR$/demos/python/app/views/home.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -68,18 +17,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demos/python/configuration/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demos/python/app/views/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-920">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demos/python/app/views/home.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#53#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demos/python/app/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="104" column="23" lean-forward="true" selection-start-line="88" selection-start-column="20" selection-end-line="104" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demos/python/app/api/user.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="481">
+              <caret line="62" column="6" lean-forward="false" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+              <folding>
+                <element signature="e#24#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demos/python/app/templates/layout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="163" column="17" lean-forward="true" selection-start-line="163" selection-start-column="17" selection-end-line="163" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demos/python/.gitignore">
+      <file leaf-file-name="wallet.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demos/python/app/templates/wallet.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -88,30 +91,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/demos/python/readme.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="527">
-                <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="wallet.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demos/python/app/api/wallet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demos/python/readme.txt">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demos/python/cryptopay_sdk/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="3" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="development.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/demos/python/configuration/development.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>member_login_required</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -120,6 +137,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/demos/python/readme.md" />
+        <option value="$PROJECT_DIR$/demos/python/app/views/home.py" />
+        <option value="$PROJECT_DIR$/demos/python/app/templates/login.html" />
+        <option value="$PROJECT_DIR$/demos/python/app/templates/layout.html" />
+        <option value="$PROJECT_DIR$/demos/python/app/api/user.py" />
+        <option value="$PROJECT_DIR$/demos/python/configuration/__init__.py" />
       </list>
     </option>
   </component>
@@ -130,8 +152,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="896" />
+    <option name="height" value="873" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -167,6 +190,59 @@
               <item name="DizPay" type="462c0819:PsiDirectoryNode" />
               <item name="demos" type="462c0819:PsiDirectoryNode" />
               <item name="python" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DizPay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DizPay" type="462c0819:PsiDirectoryNode" />
+              <item name="demos" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DizPay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DizPay" type="462c0819:PsiDirectoryNode" />
+              <item name="demos" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DizPay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DizPay" type="462c0819:PsiDirectoryNode" />
+              <item name="demos" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DizPay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DizPay" type="462c0819:PsiDirectoryNode" />
+              <item name="demos" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DizPay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DizPay" type="462c0819:PsiDirectoryNode" />
+              <item name="demos" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DizPay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DizPay" type="462c0819:PsiDirectoryNode" />
+              <item name="demos" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="cryptopay_sdk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DizPay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DizPay" type="462c0819:PsiDirectoryNode" />
+              <item name="demos" type="462c0819:PsiDirectoryNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="cryptopay_sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="__init__.py" type="8704e2dd:PyFileNode" />
             </path>
           </expand>
           <select />
@@ -214,15 +290,15 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16380544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -246,14 +322,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demos/python/app/api/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demos/python/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -270,14 +338,145 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/instance/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/app/log/multiprocess_file_logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/app/log/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-257">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/demos/python/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="527">
-            <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <first_editor relative-caret-position="391">
+            <caret line="23" column="39" lean-forward="false" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1530601678000" expanded="true" signature="26232:26249" ph="..." />
+            <marker date="1530601678000" expanded="true" signature="26232:26267" ph="..." />
+            <marker date="1530601678000" expanded="true" signature="26232:26280" ph="..." />
+            <marker date="1530601678000" expanded="true" signature="26232:26295" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/app/views/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-920">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/app/views/home.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/app/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="104" column="23" lean-forward="true" selection-start-line="88" selection-start-column="20" selection-end-line="104" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/app/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="163" column="17" lean-forward="true" selection-start-line="163" selection-start-column="17" selection-end-line="163" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/app/api/wallet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/app/templates/wallet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/app/api/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="62" column="6" lean-forward="false" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+          <folding>
+            <element signature="e#24#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/cryptopay_sdk/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/configuration/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demos/python/configuration/development.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

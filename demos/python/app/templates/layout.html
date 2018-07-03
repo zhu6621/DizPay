@@ -126,7 +126,7 @@
                 <img class="left" src="/static/assets/img/icon/back.png" alt="">
             {% endif %}
             {% if isShowExit == True %}
-                <img class="right" src="/static/assets/img/icon/exit.png" alt="">
+                <img class="right logout" src="/static/assets/img/icon/exit.png" alt="">
             {% endif %}
         </header>
         <section>
@@ -150,6 +150,21 @@
                 window.location.href = "{{ url_for('home.login') }}"
             }
         });
+
+        $(".deposit-demo").on("click", ".logout", function () {
+            $.ajax({
+                type: 'POST',
+                url: '/api/log_out',
+                json: true,
+                contentType: 'application/json',
+                success: function (data) {
+                    window.location.href = '/';
+                },
+                error: function (err) {
+                }
+            }).always(function () {
+            });
+        })
     })
 </script>
 {% block script %}
