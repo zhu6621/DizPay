@@ -17,12 +17,6 @@ restful_api.add_resource(HomeApi, '/api/')
 
 
 def init_api(app):
-    import os
-    import sys
-    basedir = os.path.abspath(os.path.dirname(__file__))
-    basedir = os.path.dirname(basedir)
-    sys.path.append(os.path.join(basedir, 'third_party'))
-
     from app.api import user
     from app.api import wallet
 
