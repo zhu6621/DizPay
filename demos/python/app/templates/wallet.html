@@ -352,6 +352,10 @@
                         $(this).prop("checked", true);
                     }
                 });
+                $currencyContainer.find(".btc").show().siblings().hide();
+                if (productIndex == 1) {
+                    $currencyContainer.find(".btc-fee").show().siblings().hide();
+                }
                 getCurrencyConvert();
             });
 
