@@ -309,7 +309,8 @@
             $(".select-header").find(".item").click(function () {
                 index = $(this).index();
                 $(this).addClass("active").siblings(".item").removeClass("active");
-                initSelect(index)
+                initSelect(index);
+                $(".deposit-demo").find(".left").hide();
             });
 
             $assets.on("click", ".currency-list .currency-item", function () {
@@ -347,6 +348,8 @@
                 $product.find(".product-detail input").each(function () {
                     if($(this).parents(".radio-inline").index() != 0) {
                         $(this).prop("checked", false);
+                    } else {
+                        $(this).prop("checked", true);
                     }
                 });
                 getCurrencyConvert();
