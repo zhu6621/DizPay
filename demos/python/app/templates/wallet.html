@@ -398,18 +398,21 @@
                 };
                 switch (currencyIndex) {
                     case 0:
+                        params.currency = 'BTC';
                         params.amount = $currencyContainer.find(".btc").text();
                         if (productIndex == 1) {
                             params.fee = 0.00001
                         }
                         break;
                     case 1:
+                        params.currency = 'ETH';
                         params.amount = $currencyContainer.find(".eth").text();
                         if (productIndex == 1) {
                             params.fee = 0.0001
                         }
                         break;
                     case 2:
+                        params.currency = 'LTC';
                         params.amount = $currencyContainer.find(".ltc").text();
                         if (productIndex == 1) {
                             params.fee = 0.001
