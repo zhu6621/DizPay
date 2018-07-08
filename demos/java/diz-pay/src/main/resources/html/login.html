@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description"
+          content="Connect your business with DizPay, start accepting Bitcoin and Ethereum payments today!">
+    <meta name="keywords" content="btc, eth, bitcoin, ethereum, payment, payments, blockchain, payment gateway">
+    <meta name="author" content="">
+
+    <title>DizPay-Demo</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/layer.css">
+    <link rel="stylesheet" href="/assets/css/page.css">
+    <style>
+        html, body, .deposit-demo {
+            width: 100%;
+            height: 100%;
+        }
+
+        .deposit-demo {
+            background-color: #EFF1F4;
+            position: relative;
+        }
+
+        .deposit-demo .main {
+            width: 440px;
+            height: 560px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -280px;
+            margin-left: -220px;
+        }
+
+        .deposit-demo header {
+            background-image: linear-gradient(-90deg, #34B9DB 0%, #58CFE8 100%);
+            height: 150px;
+            line-height: 150px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .deposit-demo header .left, .deposit-demo header .right {
+            position: absolute;
+            width: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+
+        .deposit-demo header .left {
+            left: 20px;
+        }
+
+        .deposit-demo header .right {
+            right: 20px;
+        }
+
+        .deposit-demo header .logo {
+            width: 235px;
+        }
+
+        .deposit-demo section {
+            background-color: #fff;
+        }
+
+        .deposit-demo section {
+            height: 440px;
+        }
+
+        .deposit-demo .form-group {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .deposit-demo .pdd-30 {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .deposit-demo .input-content {
+            position: relative;
+        }
+
+        .deposit-demo .input-content input {
+            padding-left: 120px;
+            height: 56px;
+            border-radius: 4px;
+        }
+
+        .deposit-demo .input-label {
+            position: absolute;
+            top: 18px;
+            left: 22px;
+        }
+
+        .deposit-demo .btn-content button {
+            width: 100%;
+            opacity: 0.4;
+            background: #32B8DA;
+            border-radius: 4px;
+            height: 56px;
+            color: #fff;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        .deposit-demo .btn-content button.active {
+            opacity: 1;
+        }
+    </style>
+    <style>
+        .deposit-demo .login-container {
+            padding-top: 30px;
+        }
+
+        .deposit-demo select {
+            height: 56px;
+        }
+
+        .deposit-demo .input-content .sms-code input {
+            padding-right: 120px;
+        }
+
+        .deposit-demo .input-content .code {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 56px;
+            line-height: 56px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .deposit-demo .input-content .code .send {
+            color: #32B8DA;
+        }
+
+        .deposit-demo .input-content .code .resend {
+            color: #bababa;
+        }
+    </style>
+
+</head>
+<body>
+<div class="deposit-demo">
+    <div class="main">
+        <header>
+            <img class="logo" src="/assets/img/payment_logo.png">
+        </header>
+        <section>
+            <div class="login-container pdd-30">
+                <form class="form-horizontal" id="login_form">
+                    <div class="form-group">
+                        <div class="input-content">
+                            <input type="text" name="mobile" class="form-control"
+                                   placeholder="Enter Phone Number">
+                            <span class="input-label">Phone</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-content">
+                            <input type="password" name="password" class="form-control"
+                                   placeholder="Enter Phone Number">
+                            <span class="input-label">Password</span>
+                        </div>
+                    </div>
+                    <div class="line-style btn-content">
+                        <button type="button" class="btn">Login
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- Script Files -->
+<script src="/assets/js/jquery-1.9.1.min.js"></script>
+<script src="/assets/js/jquery.serialize-object.js"></script>
+<script src="/assets/js/jquery.tmpl.js"></script>
+<script src="/assets/js/clipboard.min.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<script src="/assets/js/layer.js"></script>
+<script src="/assets/js/main.js"></script>
+<script>
+    $(function () {
+        $(document).ajaxError(function (event, jqxhr, settings, exception) {
+            if (jqxhr.status == 401) {
+                window.location.href = "{{ url_for('home.login') }}"
+            }
+        });
+
+        $(".deposit-demo").on("click", ".logout", function () {
+            $.ajax({
+                type: 'POST',
+                url: '/api/log_out',
+                json: true,
+                contentType: 'application/json',
+                success: function (data) {
+                    window.location.href = '/';
+                },
+                error: function (err) {
+                }
+            }).always(function () {
+            });
+        })
+    })
+</script>
+<script>
+    $(function () {
+        var btnFlag = false;
+        var $form = $("#login_form");
+
+        $form.find("input").on("input propertychange", function () {
+            btnFlag = true;
+            $form.find("input").each(function () {
+                if (!$(this).val()) {
+                    btnFlag = false;
+                }
+            });
+            if (btnFlag) {
+                $form.find(".btn").addClass("active");
+            } else {
+                $form.find(".btn").removeClass("active");
+            }
+
+        });
+
+        $form.find(".btn").click(function () {
+            if (btnFlag) {
+                var params = $form.serializeObject();
+                var mobileRexp = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
+                if (!mobileRexp.test(params.mobile)) {
+                    layer.msg('mobile does not correct');
+                    return false;
+                }
+                $.ajax({
+                    type: 'POST',
+                    data: params,
+                    url: '/api/password_login',
+                    dataType: 'json',
+                    success: function (data) {
+                        var code = data.code;
+                        if (code == 1002) {
+                            layer.msg('Incorrect password');
+                        } else {
+                            window.location.href = '/wallet.html';
+                        }
+                    },
+                    error: function (err) {
+
+                    }
+                }).always(function () {
+                });
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

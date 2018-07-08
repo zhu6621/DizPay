@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description"
+          content="Connect your business with DizPay, start accepting Bitcoin and Ethereum payments today!">
+    <meta name="keywords" content="btc, eth, bitcoin, ethereum, payment, payments, blockchain, payment gateway">
+    <meta name="author" content="">
+
+    <title>DizPay-Demo</title>
+    <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/css/layer.css">
+    <link rel="stylesheet" href="/static/assets/css/page.css">
+    <style>
+        html, body, .deposit-demo {
+            width: 100%;
+            height: 100%;
+        }
+
+        .deposit-demo {
+            background-color: #EFF1F4;
+            position: relative;
+        }
+
+        .deposit-demo .main {
+            width: 440px;
+            height: 560px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -280px;
+            margin-left: -220px;
+        }
+
+        .deposit-demo header {
+            background-image: linear-gradient(-90deg, #34B9DB 0%, #58CFE8 100%);
+            height: 150px;
+            line-height: 150px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .deposit-demo header .left, .deposit-demo header .right {
+            position: absolute;
+            width: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+
+        .deposit-demo header .left {
+            left: 20px;
+        }
+
+        .deposit-demo header .right {
+            right: 20px;
+        }
+
+        .deposit-demo header .logo {
+            width: 235px;
+        }
+
+        .deposit-demo section {
+            background-color: #fff;
+        }
+
+        .deposit-demo section {
+            height: 440px;
+        }
+
+        .deposit-demo .form-group {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .deposit-demo .pdd-30 {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .deposit-demo .input-content {
+            position: relative;
+        }
+
+        .deposit-demo .input-content input {
+            padding-left: 120px;
+            height: 56px;
+            border-radius: 4px;
+        }
+
+        .deposit-demo .input-label {
+            position: absolute;
+            top: 18px;
+            left: 22px;
+        }
+
+        .deposit-demo .btn-content button {
+            width: 100%;
+            opacity: 0.4;
+            background: #32B8DA;
+            border-radius: 4px;
+            height: 56px;
+            color: #fff;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        .deposit-demo .btn-content button.active {
+            opacity: 1;
+        }
+    </style>
+    {block name="head"}{/block}
+
+
+</head>
+<body>
+<div class="deposit-demo">
+    <div class="main">
+        <header>
+            <img class="logo" src="/static/assets/img/payment_logo.png">
+            {if condition="$isShowBack eq true"}
+            <img class="left" src="/static/assets/img/icon/back.png" alt="">
+            {/if}
+            {if condition="$isShowExit  eq  true"}
+            <img class="right logout" src="/static/assets/img/icon/exit.png" alt="">
+            {/if}
+        </header>
+        <section>
+            {block name="content"}{/block}
+        </section>
+    </div>
+</div>
+<!-- Script Files -->
+<script src="/static/assets/js/jquery-1.9.1.min.js"></script>
+<script src="/static/assets/js/jquery.serialize-object.js"></script>
+<script src="/static/assets/js/jquery.tmpl.js"></script>
+<script src="/static/assets/js/clipboard.min.js"></script>
+<script src="/static/assets/js/bootstrap.js"></script>
+<script src="/static/assets/js/layer.js"></script>
+<script src="/static/assets/js/main.js"></script>
+<script>
+    $(function () {
+        $(document).ajaxError(function (event, jqxhr, settings, exception) {
+            if (jqxhr.status == 401) {
+                window.location.href = "{:url('Index/index')}"
+            }
+        });
+
+        $(".deposit-demo").on("click", ".logout", function () {
+            $.ajax({
+                type: 'POST',
+                url: '{:url("Wallet/logout")}',
+                dataType:'json',
+                success: function (data) {
+                    window.location.href = "{:url('Index/index')}";
+                },
+                error: function (err) {
+                }
+            }).always(function () {
+            });
+        })
+    })
+</script>
+{block name="script"}{/block}
+</body>
+</html>
