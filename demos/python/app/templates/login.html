@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% set isShowBack = False %}
+{% set isShowBack = True %}
 {% set isShowExit = False %}
 
 {% block head %}
@@ -109,8 +109,11 @@
                     }).always(function () {
                     });
                 }
-            })
+            });
 
+            $(".deposit-demo").on("click", ".main>header>.left", function () {
+                window.location.href = "{{ url_for('home.index') }}"
+            })
         })
     </script>
 {% endblock %}

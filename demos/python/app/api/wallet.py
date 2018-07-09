@@ -1,8 +1,10 @@
 import decimal
 import requests
-from flask import g
+import uuid
+from flask import g, current_app
 from flask_restful import Resource, marshal_with, fields, abort
-from app.api import login_required, CustomRequestParser, pagination_query, restful_api
+from cryptopay_sdk import ApiError as CryptoPayApiError
+from app.api import login_required, CustomRequestParser, pagination_query, restful_api, cryptopay_api
 from app.api.user import user_fields
 from app.model import DecimalToString, UtcDatetime2Timestamp, db
 from app.model.wallet import Wallet, TransferOrder
@@ -191,4 +193,36 @@ class CurrencyConvertApi(Resource):
 
 
 restful_api.add_resource(CurrencyConvertApi, '/api/currency_convert')
+
+
+class ChargeOrderApi(Resource):
+    def post(self):
+        parser = CustomRequestParser()
+        parser.add_argument('amount', type=str, required=True, nullable=False, location='json')
+        parsed_args = parser.parse_args()
+        api = cryptopay_api()
+        url = '{}/member/create_charge_order'.format(current_app.config['CRYPTOPAY_BASE_URL'])
+        currency_overt = CurrencyConvertApi()
+        current_covert = currency_overt.get()
+        for item in current_covert:
+            if item['symbol'] == 'BTC':
+                BTC = float(parsed_args['amount']) / float(item['price_usd'])
+            elif item['symbol'] == 'ETH':
+                ETH = float(parsed_args['amount']) / float(item['price_usd'])
+        payments = 'BTC={};ETH={}'.format(BTC, ETH)
+        data = {
+            'number': str(uuid.uuid4()),
+            'amount': parsed_args['amount'],
+            'payments': payments,
+            'extra': ''
+        }
+        try:
+            result = api.post(url, data)
+        except CryptoPayApiError as e:
+            abort(e.http_status_code, code=e.code, message=e.message)
+        result['currency_address_qr_code'] = current_app.config['CRYPTOPAY_BASE_URL'] + '/currency_address_qr_code'
+        return result
+
+
+restful_api.add_resource(ChargeOrderApi, '/api/create_charge_order')
 
