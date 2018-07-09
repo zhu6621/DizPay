@@ -12,6 +12,7 @@ class ApiService extends CommonService {
     const URL_INQUIRY_WALLET = '/member/query_wallet';
     const URL_CREATE_TRANSACTION_ORDER = '/member/create_transaction_order';
     const URL_PAY_ORDER = '/member/pay_order';
+    const URL_CREATE_CHARGE_ORDER = '/member/create_charge_order';
 
     /**
      * @param string $currency_list
@@ -91,6 +92,33 @@ class ApiService extends CommonService {
         ];
         $url = self::URL_COIN_MARKET_CAP . $coins[strtoupper($coin)] . '/';
         $res = self::curlGet($url);
+        return $res;
+    }
+
+    /**
+     * @param $amount
+     * @param string $number
+     * @return mixed
+     * @throws ParamsException
+     */
+    public static function createChargeOrder($amount, $number = '') {
+        if (!$number) {
+            $number = TransferOrderService::getOrderNumber();
+        }
+        $eth_price_info = json_decode(self::currencyConvert('ETH'), 1);
+        $btc_price_info = json_decode(self::currencyConvert('BTC'), 1);
+        $eth_price_usd = $eth_price_info[0]['price_usd'];
+        $btc_price_usd = $btc_price_info[0]['price_usd'];
+        $eth_number = $amount / $eth_price_usd;
+        $btc_number = $amount / $btc_price_usd;
+        $data = [
+            'number'   => $number,
+            'amount'   => $amount,
+            'payments' => "BTC={$btc_number};ETH={$eth_number}",
+            'extra'    => ''
+        ];
+        $res = self::post(self::URL_CREATE_CHARGE_ORDER, $data);
+        $res['currency_address_qr_code'] = config('pay.base_url') . '/currency_address_qr_code';
         return $res;
     }
 
@@ -177,7 +205,8 @@ class ApiService extends CommonService {
                 throw new \Exception("Unauthorized Couldn’t authenticate your request", 50000);
                 break;
             default:
-                throw new \Exception("net work exception", 500);
+                Log::error("post network error : url:{$url}, data:" . json_encode($data) . ",http_code:" . $http_code);
+                throw new \Exception("network exception ", 500);
                 break;
         }
     }

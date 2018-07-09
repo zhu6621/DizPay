@@ -24,6 +24,13 @@ class WalletController extends CommonController {
         return view();
     }
 
+    public function acceptPayment() {
+        $this->assign('isShowBack', true);
+        $this->assign('isShowExit', false);
+
+        return view();
+    }
+
     public function walletList() {
         $wallet_list = WalletService::getWalletByUserId($this->user_id);
         foreach ($wallet_list as $key => $value) {
@@ -53,5 +60,11 @@ class WalletController extends CommonController {
             }
         }
         $this->responseSuccess($data);
+    }
+
+    public function createChargeOrder() {
+        $amount = input('param.amount');
+        $res = ApiService::createChargeOrder($amount);
+        $this->responseSuccess($res);
     }
 }

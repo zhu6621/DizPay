@@ -94,10 +94,8 @@
                     url: '{:url("Index/doLogin")}',
                     dataType: 'json',
                     success: function (res) {
-                        console.log(res);
-                        console.log(res.code);
                         if (res.code == 0) {
-                            window.location.href = '{:url("Wallet/index")}';
+                            window.location.href = '{:url("Index/main")}';
                         } else {
                             layer.msg(res.message);
                         }

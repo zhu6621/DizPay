@@ -1,0 +1,287 @@
+{extend name="public/layout" /}
+{block name="head"}
+    <style>
+        #accept_payments_modal .line-style {
+            padding: 0 30px;
+        }
+
+        #accept_payments_modal #amount-page {
+            padding: 30px 0;
+        }
+
+        #accept_payments_modal .btn-content {
+            margin-top: 40px;
+        }
+
+        #accept_payments_modal .btn-content button {
+            width: 100%;
+            opacity: 0.4;
+            background: #32B8DA;
+            border-radius: 4px;
+            height: 56px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        #accept_payments_modal .form-group {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        #accept_payments_modal .input-content {
+            position: relative;
+        }
+
+        #accept_payments_modal .input-content input {
+            padding-left: 12px;
+        }
+
+        #accept_payments_modal input {
+            height: 56px;
+            border-radius: 4px;
+        }
+
+        #accept_payments_modal .input-content .currency {
+            position: absolute;
+            font-size: 14px;
+            right: 60px;
+            top: 17px;
+        }
+
+        #address-page .header ul {
+            height: 55px;
+            font-size: 16px;
+            border-bottom: 1px solid #EDEDED;
+        }
+
+        #address-page .col-xs-6, #address-page .col-xs-7, #address-page .col-xs-5, #address-page .row {
+            padding: 0;
+            margin: 0;
+        }
+
+        #address-page li {
+            height: 55px;
+            line-height: 55px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #address-page li a {
+        }
+
+        #address-page li.active a {
+            padding: 15px 20px;
+            color: #35BADB;
+            border-bottom: 3px solid #35BADB;
+        }
+
+        #address-page .tips {
+            margin: 32px 0 24px;
+            padding: 0 30px;
+            color: #545454
+        }
+
+        #address-page .line-style header {
+            font-size: 16px;
+            color: #000;
+        }
+
+        #address-page .line-style .amount-content {
+            margin: 16px 0 32px;
+        }
+
+        #address-page .address-content {
+            margin: 24px 0 17px;
+            word-break: break-all;
+        }
+
+        .copy-icon {
+            cursor: pointer;
+        }
+    </style>
+{/block}
+
+{block name="content"}
+    <div id="accept_payments_modal">
+        <div id="amount-page">
+            <form class="form-horizontal" id="security_password_form">
+                <div class="form-group">
+                    <div class="line-style">Enter the amount you want to pay</div>
+                </div>
+                <div class="form-group">
+                    <div class="line-style input-content">
+                        <input type="number" name="amount" class="form-control" id=""
+                               placeholder="Enter the amount">
+                        <span class="currency">USD</span>
+                    </div>
+                </div>
+            </form>
+            <div class="line-style btn-content">
+                <button type="button" class="btn" id="payment_next">Next
+                </button>
+            </div>
+        </div>
+        <div id="address-page" class="none">
+            <div class="header">
+                <ul class="row">
+                    <li class="col-xs-6 active">
+                        <a>BTC</a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a>ETH</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="tab-btc">
+
+            </div>
+            <div id="tab-eth" class="none">
+
+            </div>
+        </div>
+    </div>
+    <script id="payment_info" type="text/template">
+
+        <div>
+            <div class="tips">To pay send ${currency.currency_id} to the address below</div>
+            <div class="line-style">
+                <header>Amount</header>
+                <div class="amount-content">
+                    <span id="currency_amount">${currency.amount}</span>
+                    <span>${currency.currency_id}</span>
+                    <span>($${amount})</span>
+                    <img data-clipboard-target="#currency_amount" style="float: right" class="copy-icon"
+                         src="/static/assets/img/icon/copy-icon.png">
+                </div>
+            </div>
+            <div class="line-style">
+                <header>Address</header>
+                <div class="row">
+                    <div class="col-xs-7">
+                        <div class="address-content" id="crypto_address">${currency.address}</div>
+                        <div>
+                            <img data-clipboard-target="#crypto_address" class="copy-icon"
+                                 src="/static/assets/img/icon/copy-icon.png">
+                        </div>
+                    </div>
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-4">
+                        <img style="width: 100%"
+                             src="${currency_address_qr_code}/${currency.address}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </script>
+
+{/block}
+
+{block name="script"}
+    <script>
+        $("#accept_payments").click(function () {
+            paymentInit();
+            $("#accept_payments_modal").modal("show");
+        });
+
+        var btnClickFlag = false;
+
+        $("#accept_payments_modal").find("input").on("input propertychange", function () {
+            var inputVal = $(this).val();
+            if (inputVal) {
+                $("#accept_payments_modal").find(".btn").css("opacity", 1);
+                btnClickFlag = true;
+            }
+        });
+
+        $("#payment_next").click(function () {
+            if (btnClickFlag) {
+                var amount = $("#amount-page").find("input").val();
+                var params = {amount: amount};
+                createChargeOrder(params)
+            }
+        });
+
+        function createChargeOrder(params) {
+            var index = layer.load(2, {
+                shade: [0.6, '#000'],
+                scrollbar: false
+            });
+            $.ajax({
+                type: 'POST',
+                url: "{:url('Wallet/createChargeOrder')}",
+                data: params,
+                dataType: 'json',
+                success: function (res) {
+                    if(res.code==0){
+                        var data = res.data;
+                        var btcData = {amount: data.amount, currency_address_qr_code: data.currency_address_qr_code};
+                        var ethData = {amount: data.amount, currency_address_qr_code: data.currency_address_qr_code};
+                        for (var i = 0; i < data.payments.length; i++) {
+                            if (data.payments[i].currency_id === 'BTC') {
+                                btcData.currency = data.payments[i]
+                            }
+                            if (data.payments[i].currency_id === 'ETH') {
+                                ethData.currency = data.payments[i]
+                            }
+                        }
+                        $("#tab-btc").html($("#payment_info").tmpl(btcData).html());
+                        $("#tab-eth").html($("#payment_info").tmpl(ethData).html());
+                        $("#amount-page").hide();
+                        $("#address-page").show();
+                    }else {
+                        layer.msg(res.message);
+                    }
+
+                },
+                error: function (err) {
+                }
+            }).always(function () {
+                layer.close(index);
+            });
+        }
+
+
+        $("#accept_payments_modal").on("click", "li", function () {
+            $(this).addClass("active").siblings("li").removeClass("active");
+            if ($(this).index() == 0) {
+                $("#tab-btc").show();
+                $("#tab-eth").hide();
+            } else {
+                $("#tab-btc").hide();
+                $("#tab-eth").show();
+            }
+        });
+
+        function paymentInit() {
+            $("#accept_payments_modal").find("li:nth-child(1)").addClass("active").siblings("li").removeClass("active");
+            $("#amount-page").show();
+            $("#address-page").hide();
+            $("#tab-btc").show();
+            $("#tab-eth").hide();
+            $("#accept_payments_modal").find("input").val("");
+        }
+
+        var clipboard = new ClipboardJS('img');
+        clipboard.on('success', function () {
+            layer.open({
+                title: 'Tips',
+                content: 'Copy Success',
+                btn: ['Ok'],
+                shadeClose: true
+            });
+        });
+        clipboard.on('error', function () {
+            layer.open({
+                title: 'Tips',
+                content: 'Copy Failed',
+                btn: ['Ok'],
+                shadeClose: true
+            });
+        });
+
+        $(".deposit-demo").on("click", ".main>header>.left", function () {
+            window.location.href = "{:url('Index/main')}"
+        })
+    </script>
+{/block}

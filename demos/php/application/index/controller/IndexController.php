@@ -20,11 +20,21 @@ class IndexController extends CommonController {
 
     public function index() {
         if ($this->checkLogin()) {
-            $this->redirect('Wallet/index');
+            $this->redirect('Index/main');
         } else {
             $this->assign('isShowBack', false);
             $this->assign('isShowExit', false);
             return view();
+        }
+    }
+
+    public function main() {
+        if ($this->checkLogin()) {
+            $this->assign('isShowBack', false);
+            $this->assign('isShowExit', false);
+            return view();
+        } else {
+            $this->redirect('Index/index');
         }
     }
 
