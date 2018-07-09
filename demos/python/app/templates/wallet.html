@@ -295,6 +295,7 @@
             var faitCurrency = 0.1;
             var walletList = [];
             var currencyAmount = [];
+            var isBack = true;
             var $currencyContainer = $("#product_detail");
             var currencyIconList = ['/static/assets/img/icon/BTC.png', '/static/assets/img/icon/ETH.png', '/static/assets/img/icon/LTC.png'];
 
@@ -304,18 +305,16 @@
                 layer.msg("Copy Success");
             });
 
-            $(".deposit-demo").find(".left").hide();
-
             $(".select-header").find(".item").click(function () {
                 index = $(this).index();
                 $(this).addClass("active").siblings(".item").removeClass("active");
                 initSelect(index);
-                $(".deposit-demo").find(".left").hide();
+                isBack = true;
             });
 
             $assets.on("click", ".currency-list .currency-item", function () {
+                isBack = false;
                 $("#currency_detail").empty();
-                $(".deposit-demo").find(".left").show();
                 $assets.find(".currency-list").hide();
                 $assets.find(".currency-detail").show();
                 var wallet = $(this).data("currencydetail");
@@ -335,7 +334,7 @@
 
             $product.on("click", ".btn-buy", function () {
                 productIndex = $(this).parents(".product-item").index();
-                $(".deposit-demo").find(".left").show();
+                isBack = false;
                 $product.find(".product-list").hide();
                 $product.find(".product-detail").show();
                 $product.find(".product-detail .fees").show();
@@ -360,8 +359,12 @@
             });
 
             $(".deposit-demo").find(".left").click(function () {
-                initSelect(index);
-                $(".deposit-demo").find(".left").hide();
+                if(isBack) {
+                    window.location.href = "{{ url_for('home.index') }}"
+                } else {
+                    initSelect(index);
+                    isBack = true;
+                }
             });
 
             $("#product_detail").find(".radio-inline").click(function () {
@@ -496,7 +499,6 @@
                                 case 'LTC':
                                     var currencyVal = (faitCurrency / item.price_usd).toFixed(8);
                                     $currencyContainer.find(".ltc").text(currencyVal + item.symbol);
-                                    console.log(currencyAmount);
                                     currencyAmount.push({LTC: currencyVal});
                                     break;
                             }
