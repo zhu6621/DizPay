@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
-{% set isShowBack = True %}
-{% set isShowExit = False %}
+{% set isShowBack = False %}
+{% set isShowExit = True %}
 
 {% block head %}
     <style>
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="line-style btn-content">
-                <button type="button" class="btn">Login/Register
+                <button type="button" class="btn">Login
                 </button>
             </div>
         </form>
@@ -98,7 +98,7 @@
                         json: true,
                         contentType: 'application/json',
                         success: function (data) {
-                            window.location.href = '/wallet';
+                            window.location.href = '{{ url_for("home.index") }}';
                         },
                         error: function (err) {
                             var code = err.responseJSON.code;
@@ -114,6 +114,7 @@
             $(".deposit-demo").on("click", ".main>header>.left", function () {
                 window.location.href = "{{ url_for('home.index') }}"
             })
+
         })
     </script>
 {% endblock %}

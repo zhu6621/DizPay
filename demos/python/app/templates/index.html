@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% set isShowBack = False %}
-{% set isShowExit = False %}
+{% set isShowExit = True %}
 
 {% block head %}
     <style>
@@ -21,7 +21,7 @@
 
 {% block content %}
     <div class="pay-methods">
-        <a class="item" href="{{ url_for("home.login") }}">
+        <a class="item" href="{{ url_for("home.wallet") }}">
             <label>Deposit</label>
         </a>
         <a class="item" href="{{ url_for('home.payment') }}">
