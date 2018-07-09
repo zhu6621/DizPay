@@ -158,7 +158,7 @@
                 json: true,
                 contentType: 'application/json',
                 success: function (data) {
-                    window.location.href = '/';
+                    window.location.href = "{{ url_for('home.login') }}";
                 },
                 error: function (err) {
                 }
