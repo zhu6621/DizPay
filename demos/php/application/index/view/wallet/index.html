@@ -290,6 +290,7 @@
             var faitCurrency = 0.1;
             var walletList = [];
             var currencyAmount = [];
+            var isBack = true;
             var $currencyContainer = $("#product_detail");
             var currencyIconList = ['/static/assets/img/icon/BTC.png', '/static/assets/img/icon/ETH.png', '/static/assets/img/icon/LTC.png'];
 
@@ -299,12 +300,11 @@
                 layer.msg("Copy Success");
             });
 
-            $(".deposit-demo").find(".left").hide();
-
             $(".select-header").find(".item").click(function () {
                 index = $(this).index();
                 $(this).addClass("active").siblings(".item").removeClass("active");
                 initSelect(index)
+                isBack = true;
             });
 
             function get_icon(currency_id){
@@ -324,8 +324,8 @@
             }
 
             $assets.on("click", ".currency-list .currency-item", function () {
+                isBack = false;
                 $("#currency_detail").empty();
-                $(".deposit-demo").find(".left").show();
                 $assets.find(".currency-list").hide();
                 $assets.find(".currency-detail").show();
                 var wallet = $(this).data("currencydetail");
@@ -344,8 +344,8 @@
             });
 
             $product.on("click", ".btn-buy", function () {
+                isBack = false;
                 productIndex = $(this).parents(".product-item").index();
-                $(".deposit-demo").find(".left").show();
                 $product.find(".product-list").hide();
                 $product.find(".product-detail").show();
                 $product.find(".product-detail .fees").show();
@@ -364,8 +364,12 @@
             });
 
             $(".deposit-demo").find(".left").click(function () {
-                initSelect(index);
-                $(".deposit-demo").find(".left").hide();
+                if(isBack) {
+                    window.location.href = "{:url('Index/main')}"
+                } else {
+                    initSelect(index);
+                    isBack = true;
+                }
             });
 
             $("#product_detail").find(".radio-inline").click(function () {
