@@ -3,7 +3,7 @@
 Merchants need to contact[dizpay](https://www.dizpay.com/en/contact)toApply for an account and get app_key and app_id
 。
 BASE_URL:http://api.cryptopay.icaicloud.com, All payment interfaces use post。
-![Docking process](https://github.com/DizPay/DizPay/static/img/process.png)
+![Docking process](https://github.com/DizPay/DizPay/blob/master/static/img/process.png)
 ## Signature Rule
 The POST parameter increases app_id, app_key and is arranged in alphabetical order as k1=v1&k2=v2 ... string, 
 and the md5 value (lowercase) of the string is the signature. Note that Chinese needs utf8 encoding!例 POST 参数：
