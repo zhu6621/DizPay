@@ -213,7 +213,7 @@ result = merchant_api.post(url, params)
 * After creating the order, you will get a payment information (see the api document for details), which is mainly a collection address, 
 and then the user will pay this address to complete the payment. Pay the QR code generation rule:{base_url}/currency_address_qr_code/{address}.
 * Check the order status via the interface `/member/query_charge_order`.
-* The incoming order number `number` is checked according to the result of the `status` to check the order status: # 1 Payment 2 Complete 4 Withdrawn.
+* The incoming order number `number` is checked according to the result of the `status` to check the order status: #1 Payment #2 Complete #4 Withdrawn.
 ```python
 url = '{}//member/query_charge_order'.format(base_url)
 result = merchant_api.post(url, {'number': '317bd7f8-997c-4e66-a2e8-200ab5527abc'})
